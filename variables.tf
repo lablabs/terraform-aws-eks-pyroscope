@@ -18,7 +18,7 @@ variable "cluster_identity_oidc_issuer_arn" {
 
 variable "helm_chart_name" {
   type        = string
-  default     = "<$addon-name>"
+  default     = "pyroscope"
   description = "Helm chart name to be installed"
 }
 
@@ -30,7 +30,7 @@ variable "helm_chart_version" {
 
 variable "helm_release_name" {
   type        = string
-  default     = "<$addon-name>"
+  default     = "pyroscope"
   description = "Helm release name"
 }
 
@@ -48,20 +48,20 @@ variable "helm_create_namespace" {
 
 variable "namespace" {
   type        = string
-  default     = "<$addon-name>"
-  description = "The K8s namespace in which the <$addon-name> service account has been created"
+  default     = "pyroscope"
+  description = "The K8s namespace in which the pyroscope service account has been created"
 }
 
 variable "settings" {
   type        = map(any)
   default     = {}
-  description = "Additional helm sets which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/<$addon-name>"
+  description = "Additional helm sets which will be passed to the Helm chart values, see https://github.com/grafana/pyroscope/tree/next/operations/phlare/helm/phlare"
 }
 
 variable "values" {
   type        = string
   default     = ""
-  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://hub.helm.sh/charts/stable/<$addon-name>"
+  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://github.com/grafana/pyroscope/tree/next/operations/phlare/helm/phlare"
 }
 
 # ================ IRSA variables (optional) ================
@@ -80,8 +80,8 @@ variable "service_account_create" {
 
 variable "service_account_name" {
   type        = string
-  default     = "<$addon-name>"
-  description = "The k8s <$addon-name> service account name"
+  default     = "pyroscope"
+  description = "The k8s pyroscope service account name"
 }
 
 variable "irsa_role_create" {
@@ -116,8 +116,8 @@ variable "irsa_additional_policies" {
 
 variable "irsa_role_name_prefix" {
   type        = string
-  default     = "<$addon-name>-irsa"
-  description = "The IRSA role name prefix for <$addon-name>"
+  default     = "pyroscope-irsa"
+  description = "The IRSA role name prefix for pyroscope"
 }
 
 variable "irsa_tags" {

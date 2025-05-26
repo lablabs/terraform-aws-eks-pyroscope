@@ -1,10 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
-# AWS EKS Universal Addon Terraform module
+# AWS EKS pyroscope Terraform module
 
-A Terraform module to deploy the universal addon on Amazon EKS cluster.
+A Terraform module to deploy the [Pyroscope](https://grafana.com/docs/pyroscope/latest/) on Amazon EKS cluster.
 
-[![Terraform validate](https://github.com/lablabs/terraform-aws-eks-universal-addon/actions/workflows/validate.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-universal-addon/actions/workflows/validate.yaml)
-[![pre-commit](https://github.com/lablabs/terraform-aws-eks-universal-addon/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-universal-addon/actions/workflows/pre-commit.yaml)
+[![Terraform validate](https://github.com/lablabs/terraform-aws-eks-pyroscope/actions/workflows/validate.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-pyroscope/actions/workflows/validate.yaml)
+[![pre-commit](https://github.com/lablabs/terraform-aws-eks-pyroscope/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-pyroscope/actions/workflows/pre-commit.yml)
 
 ---
 
@@ -56,6 +56,7 @@ See [basic example](examples/basic) for further information.
 
 | Name | Type |
 |------|------|
+| [aws_iam_policy_document.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [utils_deep_merge_yaml.values](https://registry.terraform.io/providers/cloudposse/utils/latest/docs/data-sources/deep_merge_yaml) | data source |
 > [!IMPORTANT]
 > Variables defined in [variables-addon[-irsa|oidc].tf](variables-addon.tf) defaults to `null` to have them overridable by the addon configuration defined though the [`local.addon[_irsa|oidc].*`](main.tf) local variable with the default values defined in [addon[-irsa|oidc].tf](addon.tf).
@@ -90,6 +91,7 @@ See [basic example](examples/basic) for further information.
 | <a name="input_argo_spec"></a> [argo\_spec](#input\_argo\_spec) | ArgoCD Application spec configuration. Configuration is extended by deep merging with the default spec parameters. Defaults to `{}`. | `any` |
 | <a name="input_argo_spec_override"></a> [argo\_spec\_override](#input\_argo\_spec\_override) | ArgoCD Application spec configuration. Configuration is overriden by merging natively with the default spec parameters. Defaults to `{}`. | `any` |
 | <a name="input_argo_sync_policy"></a> [argo\_sync\_policy](#input\_argo\_sync\_policy) | ArgoCD Application manifest syncPolicy parameter. Defaults to `{}`. | `any` |
+| <a name="input_aws_partition"></a> [aws\_partition](#input\_aws\_partition) | AWS partition in which the resources are located. Avaliable values are `aws`, `aws-cn`, `aws-us-gov` | `string` |
 | <a name="input_cluster_identity_oidc_issuer"></a> [cluster\_identity\_oidc\_issuer](#input\_cluster\_identity\_oidc\_issuer) | The OIDC Identity issuer for the cluster (required for IRSA). Defaults to `""`. | `string` |
 | <a name="input_cluster_identity_oidc_issuer_arn"></a> [cluster\_identity\_oidc\_issuer\_arn](#input\_cluster\_identity\_oidc\_issuer\_arn) | The OIDC Identity issuer ARN for the cluster that can be used to associate IAM roles with a Service Account (required for IRSA). Defaults to `""`. | `string` |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | The name of the cluster (required for pod identity). Defaults to `""`. | `string` |

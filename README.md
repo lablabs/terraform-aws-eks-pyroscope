@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-# AWS EKS pyroscope Terraform module
+# AWS EKS Pyroscope Terraform module
 
 A Terraform module to deploy the [Pyroscope](https://grafana.com/docs/pyroscope/latest/) on Amazon EKS cluster.
 
